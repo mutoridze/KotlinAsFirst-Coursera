@@ -1,4 +1,5 @@
 @file:Suppress("UNUSED_PARAMETER")
+
 package lesson1.task1
 
 import kotlin.math.*
@@ -29,6 +30,7 @@ fun discriminant(a: Double, b: Double, c: Double) = sqr(b) - 4 * a * c
  *
  * Поиск одного из корней квадратного уравнения
  */
+
 fun quadraticEquationRoot(a: Double, b: Double, c: Double) =
         (-b + sqrt(discriminant(a, b, c))) / (2 * a)
 
@@ -37,6 +39,8 @@ fun quadraticEquationRoot(a: Double, b: Double, c: Double) =
  *
  * Поиск произведения корней квадратного уравнения
  */
+
+//@Test
 fun quadraticRootProduct(a: Double, b: Double, c: Double): Double {
     val sd = sqrt(discriminant(a, b, c))
     val x1 = (-b + sd) / (2 * a)
@@ -48,8 +52,8 @@ fun quadraticRootProduct(a: Double, b: Double, c: Double): Double {
  * Пример главной функции
  */
 fun main(args: Array<String>) {
-    val x1x2 = quadraticRootProduct(1.0, 13.0, 42.0)
-    println("Root product: $x1x2")
+    println(angleInRadian(36, 14, 35))
+    println(36+14/60.0+35/3600.0)
 }
 
 /**
@@ -75,7 +79,8 @@ fun lengthInMeters(sagenes: Int, arshins: Int, vershoks: Int): Double = TODO()
  * Пользователь задает угол в градусах, минутах и секундах (например, 36 градусов 14 минут 35 секунд).
  * Вывести значение того же угла в радианах (например, 0.63256).
  */
-fun angleInRadian(deg: Int, min: Int, sec: Int): Double = TODO()
+
+fun angleInRadian(deg: Int, min: Int, sec: Int): Double = ((deg + min / 60.0 + sec / 3600.0) * PI / 180.0)
 
 /**
  * Тривиальная
