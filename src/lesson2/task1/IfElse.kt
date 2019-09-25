@@ -62,7 +62,12 @@ fun minBiRoot(a: Double, b: Double, c: Double): Double {
  * Мой возраст. Для заданного 0 < n < 200, рассматриваемого как возраст человека,
  * вернуть строку вида: «21 год», «32 года», «12 лет».
  */
-fun ageDescription(age: Int): String = TODO()
+fun ageDescription(age: Int): String {
+    if(age%100>=5 && age%100<=20) return "$age лет"
+    else if(age%10>=5 && age%10<=9 || age%10==0) return "$age лет"
+    else if(age%10>1 && age%10<5) return "$age года"
+    else return "$age год"
+}
 
 /**
  * Простая
@@ -73,7 +78,17 @@ fun ageDescription(age: Int): String = TODO()
  */
 fun timeForHalfWay(t1: Double, v1: Double,
                    t2: Double, v2: Double,
-                   t3: Double, v3: Double): Double = TODO()
+                   t3: Double, v3: Double): Double {
+    var S1=t1*v1
+    var S2=t2*v2
+    var S3=t3*v3;
+    var S=S1+S2+S3
+    var T=0.0
+    if(S/2<=S1) T=(S/2)/v1
+    else if(S/2>S1 && S/2<=(S1+S2))T=t1+(S/2-S1)/v2
+    else T=t1+t2+(S/2-S1-S2)/v3
+    return T
+}
 
 /**
  * Простая
@@ -121,3 +136,8 @@ fun triangleKind(a: Double, b: Double, c: Double): Int = TODO()
  * Если пересечения нет, вернуть -1.
  */
 fun segmentLength(a: Int, b: Int, c: Int, d: Int): Int = TODO()
+
+fun main(args: Array<String>)
+{
+    println(timeForHalfWay(1.0,1.0,1.0,1.0,1.0,1.0))
+}
